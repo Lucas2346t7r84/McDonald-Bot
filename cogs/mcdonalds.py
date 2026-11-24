@@ -122,6 +122,8 @@ class McDonalds(commands.Cog):
   @app_commands.command(
       name="roll", description="Roll for your random McDonald's order!"
   )
+  @app_commands.allowed_installs(guilds=True, users=True)
+  @app_commands.allowed_contexts(guilds=True, dms=True, private_channels=True)
   async def roll(self, interaction: discord.Interaction):
     meal = random.choice(self.meal_sizes)
     main = random.choice(self.mains)
